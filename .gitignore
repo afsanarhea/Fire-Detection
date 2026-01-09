@@ -1,22 +1,10 @@
-# Data files
 data/raw/
 data/processed/
-
-# Model files
-#models/*.h5
-
-# Uploaded images
 static/uploads/
-
-# Python cache
 __pycache__/
 *.pyc
 *.pyo
-
-# Environment
 venv/
 .env
-
-# IDE
 .vscode/
 .idea/
