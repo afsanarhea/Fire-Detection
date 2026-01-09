@@ -1,7 +1,5 @@
 #  Fire Detection System
 
-AI-Powered Forest Fire Detection System
-
 ##  About
 
 An AI-powered fire detection system that uses deep learning to detect fires from images. Built to help protect forests.
@@ -23,6 +21,11 @@ An AI-powered fire detection system that uses deep learning to detect fires from
 ##  Project Structure
 ```
 Fire-Detection/
+├── data/
+│   ├── raw/              
+│   └── processed/        
+├── models/
+│   └── fire_model.h5     
 ├── src/
 │   ├── explore_data.py
 │   ├── process_data.py
@@ -31,8 +34,11 @@ Fire-Detection/
 │   └── predict.py
 ├── templates/
 │   └── index.html
+├── static/
+│   └── uploads/         
 ├── app.py
 ├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
