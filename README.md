@@ -1,6 +1,6 @@
 #  Fire Detection System
 
-AI-Powered Forest Fire Detection System for Kazakhstan
+AI-Powered Forest Fire Detection System
 
 ##  About
 
