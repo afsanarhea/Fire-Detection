@@ -3,7 +3,7 @@ data/raw/
 data/processed/
 
 # Model files
-models/*.h5
+#models/*.h5
 
 # Uploaded images
 static/uploads/
