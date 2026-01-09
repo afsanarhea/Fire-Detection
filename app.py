@@ -4,10 +4,20 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 import os
+import urllib.request
 
 app = Flask(__name__)
 
-model = load_model("models/fire_model.h5")
+MODEL_PATH = "models/fire_model.h5"
+
+if not os.path.exists(MODEL_PATH):
+    print("Downloading model from Hugging Face...")
+    os.makedirs("models", exist_ok=True)
+    url = "https://huggingface.co/Afsana01/fire-detection-model/resolve/main/fire_model.h5"
+    urllib.request.urlretrieve(url, MODEL_PATH)
+    print("Model downloaded!")
+
+model = load_model(MODEL_PATH)
 
 UPLOAD_FOLDER = "static/uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -53,7 +63,7 @@ def predict():
 
 if __name__ == "__main__":
     print("=" * 50)
-    print("ORMAN Fire Detection System")
+    print("Fire Detection System")
     print("=" * 50)
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
