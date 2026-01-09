@@ -68,3 +68,7 @@ python app.py
 |--------|-------|
 | Training Accuracy | 98.25% |
 | Testing Accuracy | 97.00% |
+
+##  License
+
+MIT License
