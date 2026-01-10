@@ -132,6 +132,14 @@
         border: 3px solid #fff;
     }
 
+    .uploaded-img {
+            max-width: 300px;
+            max-height: 300px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 3px solid #fff;
+        }
+
     .footer {
         text-align: center;
         margin-top: 50px;
@@ -171,6 +179,9 @@
 
         {% if result %}
         <div class="result-box">
+            {% if image_path %}
+            <img src="{{ image_path }}" class="uploaded-img" alt="Uploaded Image">
+            {% endif %}
             <p class="{% if 'FIRE' in result %}result-fire{% else %}result-safe{% endif %}">
                 {{ result }}
             </p>
