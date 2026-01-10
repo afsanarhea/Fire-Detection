@@ -73,7 +73,7 @@ python app.py
 
  (https://fire-detect-production.up.railway.app)
 
-Alternative:(https://huggingface.co/spaces/Afsana01/fire-detection)
+Alternative: (https://huggingface.co/spaces/Afsana01/fire-detection)
 
 ##  Demo
 
