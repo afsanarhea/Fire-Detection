@@ -40,6 +40,10 @@ def predict_fire(img_path):
     
     return result, round(conf_percent, 2)
 
+@app.route("/")
+def home():
+    return render_template("index.html")
+
 @app.route("/predict", methods=["POST"])
 def predict():
     if "file" not in request.files:
@@ -58,13 +62,6 @@ def predict():
     image_path = "/" + filepath
     
     return render_template("index.html", result=result, confidence=confidence, image_path=image_path)
-    
-    filepath = os.path.join(UPLOAD_FOLDER, file.filename)
-    file.save(filepath)
-    
-    result, confidence = predict_fire(filepath)
-    
-    return render_template("index.html", result=result, confidence=confidence)
 
 if __name__ == "__main__":
     print("=" * 50)
