@@ -69,6 +69,16 @@ python app.py
 | Training Accuracy | 98.25% |
 | Testing Accuracy | 97.00% |
 
+##  Live Demo
+
+ (https://fire-detect-production.up.railway.app)
+
+Alternative:(https://huggingface.co/spaces/Afsana01/fire-detection)
+
+##  Demo
+
+![Fire Detection Demo](demo.png)
+
 ##  License
 
 MIT License
