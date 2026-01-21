@@ -2,7 +2,7 @@
 
 ##  About
 
-An AI-powered fire detection system that uses deep learning to detect fires from images. Built to help protect forests.
+A fire detection system that uses deep learning to detect fires from images. Built to help protect forests.
 
 ##  Features
 
