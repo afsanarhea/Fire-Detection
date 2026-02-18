@@ -71,9 +71,7 @@ python app.py
 
 ##  Live Demo
 
- (https://fire-detect-production.up.railway.app)
-
-Alternative: (https://huggingface.co/spaces/Afsana01/fire-detection)
+(https://huggingface.co/spaces/Afsana01/fire-detection)
 
 ##  Demo
 
