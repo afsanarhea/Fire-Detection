@@ -2,7 +2,7 @@
 
 ##  About
 
-An AI-powered fire detection system that uses deep learning to detect fires from images. Built to help protect forests.
+A fire detection system that uses deep learning to detect fires from images. Built to help protect forests.
 
 ##  Features
 
@@ -68,6 +68,14 @@ python app.py
 |--------|-------|
 | Training Accuracy | 98.25% |
 | Testing Accuracy | 97.00% |
+
+##  Live Demo
+
+(https://huggingface.co/spaces/Afsana01/fire-detection)
+
+##  Demo
+
+![Fire Detection Demo](demo.png)
 
 ##  License
 
