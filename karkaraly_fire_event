@@ -1,0 +1,21 @@
+import pandas as pd
+
+df = pd.read_csv(r"C:\Users\USER\Downloads\DL_FIRE_J1V-C2_726235\fire_archive_J1V-C2_726235.csv")
+
+karkaraly = df[
+    (df['latitude'] > 49.0) & (df['latitude'] < 49.6) &
+    (df['longitude'] > 75.0) & (df['longitude'] < 75.8)
+]
+
+aug2020 = karkaraly[karkaraly['acq_date'].str.startswith('2020-08')]
+print(f"August 2020 hotspots: {len(aug2020)}")
+print(f"\nDates:")
+print(aug2020['acq_date'].value_counts().sort_index())
+print(f"\nConfidence levels:")
+print(aug2020['confidence'].value_counts())
+print(f"\nLocation range:")
+print(f"Lat: {aug2020['latitude'].min():.3f} to {aug2020['latitude'].max():.3f}")
+print(f"Lon: {aug2020['longitude'].min():.3f} to {aug2020['longitude'].max():.3f}")
+print(f"\nFRP range: {aug2020['frp'].min():.1f} to {aug2020['frp'].max():.1f}")
+print(f"Avg FRP: {aug2020['frp'].mean():.1f}")
+print(f"\nHigh confidence count: {len(aug2020[aug2020['confidence'] == 'h'])}")

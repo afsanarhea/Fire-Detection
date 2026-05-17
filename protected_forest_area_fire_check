@@ -1,0 +1,46 @@
+import pandas as pd
+
+df = pd.read_csv(r"C:\Users\USER\Downloads\DL_FIRE_J1V-C2_726235\fire_archive_J1V-C2_726235.csv")
+
+# Bayanaul National Park (Pavlodar Region)
+bayanaul = df[
+    (df['latitude'] > 50.6) & (df['latitude'] < 51.0) &
+    (df['longitude'] > 75.5) & (df['longitude'] < 76.2)
+]
+
+# Karkaraly National Park (Karaganda Region)
+karkaraly = df[
+    (df['latitude'] > 49.0) & (df['latitude'] < 49.6) &
+    (df['longitude'] > 75.0) & (df['longitude'] < 75.8)
+]
+
+# Kokshetau National Park (near Burabay, Akmola Region)
+kokshetau = df[
+    (df['latitude'] > 53.2) & (df['latitude'] < 53.8) &
+    (df['longitude'] > 69.0) & (df['longitude'] < 70.0)
+]
+
+# Yertis Ormany (Irtysh forest, near Semey, Pavlodar Region)
+yertis = df[
+    (df['latitude'] > 51.5) & (df['latitude'] < 52.5) &
+    (df['longitude'] > 76.5) & (df['longitude'] < 78.5)
+]
+
+print("=" * 50)
+print("FIRE EVENTS IN PROTECTED AREAS")
+print("=" * 50)
+
+for name, data in [("Bayanaul", bayanaul), 
+                     ("Karkaraly", karkaraly),
+                     ("Kokshetau", kokshetau),
+                     ("Yertis Ormany", yertis)]:
+    print(f"\n--- {name} ---")
+    print(f"Total hotspots: {len(data)}")
+    if len(data) > 0:
+        data = data.copy()
+        data['year'] = pd.to_datetime(data['acq_date']).dt.year
+        print(f"By year:")
+        print(data['year'].value_counts().sort_index().to_string())
+        print(f"Top 5 fire dates:")
+        print(data['acq_date'].value_counts().head(5).to_string())
+        print(f"Avg FRP: {data['frp'].mean():.1f}")

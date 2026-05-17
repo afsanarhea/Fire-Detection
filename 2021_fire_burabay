@@ -1,0 +1,19 @@
+import pandas as pd
+
+df = pd.read_csv(r"C:\Users\USER\Downloads\DL_FIRE_J1V-C2_726235\fire_archive_J1V-C2_726235.csv")
+
+burabay = df[
+    (df['latitude'] > 52.7) & (df['latitude'] < 53.2) &
+    (df['longitude'] > 70.0) & (df['longitude'] < 70.6)
+]
+
+april2021 = burabay[burabay['acq_date'].str.startswith('2021-04')]
+print(f"April 2021 hotspots: {len(april2021)}")
+print(f"\nDates:")
+print(april2021['acq_date'].value_counts().sort_index())
+print(f"\nConfidence levels:")
+print(april2021['confidence'].value_counts())
+print(f"\nLocation range:")
+print(f"Lat: {april2021['latitude'].min():.3f} to {april2021['latitude'].max():.3f}")
+print(f"Lon: {april2021['longitude'].min():.3f} to {april2021['longitude'].max():.3f}")
+print(f"\nAvg FRP: {april2021['frp'].mean():.1f}")

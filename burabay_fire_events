@@ -1,0 +1,15 @@
+import pandas as pd
+
+df = pd.read_csv(r"C:\Users\USER\Downloads\DL_FIRE_J1V-C2_726235\fire_archive_J1V-C2_726235.csv")
+
+burabay = df[
+    (df['latitude'] > 52.7) & (df['latitude'] < 53.2) &
+    (df['longitude'] > 70.0) & (df['longitude'] < 70.6)
+]
+
+print(f"Total Burabay hotspots: {len(burabay)}")
+print(f"\nBy year:")
+burabay['year'] = pd.to_datetime(burabay['acq_date']).dt.year
+print(burabay['year'].value_counts().sort_index())
+print(f"\nTop 10 fire dates:")
+print(burabay['acq_date'].value_counts().head(10))
