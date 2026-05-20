@@ -1,0 +1,206 @@
+{
+  "Semey": {
+    "Random Forest": {
+      "best_params": {
+        "max_depth": 5,
+        "min_samples_leaf": 1,
+        "n_estimators": 100
+      },
+      "OA": 0.9682539682539683,
+      "UA": 1.0,
+      "PA": 0.9456521739130435,
+      "F1": 0.9720670391061452,
+      "confusion_matrix": [
+        [
+          131,
+          0
+        ],
+        [
+          10,
+          174
+        ]
+      ],
+      "time_min": 0.8927693486213684
+    },
+    "XGBoost": {
+      "best_params": {
+        "learning_rate": 0.05,
+        "max_depth": 3,
+        "n_estimators": 100
+      },
+      "OA": 0.9936507936507937,
+      "UA": 1.0,
+      "PA": 0.9891304347826086,
+      "F1": 0.994535519125683,
+      "confusion_matrix": [
+        [
+          131,
+          0
+        ],
+        [
+          2,
+          182
+        ]
+      ],
+      "time_min": 0.06323748429616292
+    },
+    "LightGBM": {
+      "best_params": {
+        "learning_rate": 0.05,
+        "max_depth": 5,
+        "n_estimators": 100
+      },
+      "OA": 0.9936507936507937,
+      "UA": 1.0,
+      "PA": 0.9891304347826086,
+      "F1": 0.994535519125683,
+      "confusion_matrix": [
+        [
+          131,
+          0
+        ],
+        [
+          2,
+          182
+        ]
+      ],
+      "time_min": 0.15879857540130615
+    }
+  },
+  "Karkaraly": {
+    "Random Forest": {
+      "best_params": {
+        "max_depth": 5,
+        "min_samples_leaf": 1,
+        "n_estimators": 200
+      },
+      "OA": 0.9424083769633508,
+      "UA": 0.9035087719298246,
+      "PA": 1.0,
+      "F1": 0.9493087557603687,
+      "confusion_matrix": [
+        [
+          77,
+          11
+        ],
+        [
+          0,
+          103
+        ]
+      ],
+      "time_min": 0.7596937457720438
+    },
+    "XGBoost": {
+      "best_params": {
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "OA": 0.9057591623036649,
+      "UA": 0.8512396694214877,
+      "PA": 1.0,
+      "F1": 0.9196428571428571,
+      "confusion_matrix": [
+        [
+          70,
+          18
+        ],
+        [
+          0,
+          103
+        ]
+      ],
+      "time_min": 0.05034144719441732
+    },
+    "LightGBM": {
+      "best_params": {
+        "learning_rate": 0.05,
+        "max_depth": 7,
+        "n_estimators": 300
+      },
+      "OA": 0.9057591623036649,
+      "UA": 0.8512396694214877,
+      "PA": 1.0,
+      "F1": 0.9196428571428571,
+      "confusion_matrix": [
+        [
+          70,
+          18
+        ],
+        [
+          0,
+          103
+        ]
+      ],
+      "time_min": 0.04903795719146729
+    }
+  },
+  "Combined": {
+    "Random Forest": {
+      "best_params": {
+        "max_depth": null,
+        "min_samples_leaf": 1,
+        "n_estimators": 100
+      },
+      "OA": 0.9784791965566715,
+      "UA": 0.9877675840978594,
+      "PA": 0.9670658682634731,
+      "F1": 0.9773071104387292,
+      "confusion_matrix": [
+        [
+          359,
+          4
+        ],
+        [
+          11,
+          323
+        ]
+      ],
+      "time_min": 0.7747110048929851
+    },
+    "XGBoost": {
+      "best_params": {
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "OA": 0.9842180774748924,
+      "UA": 0.9938837920489296,
+      "PA": 0.9730538922155688,
+      "F1": 0.983358547655068,
+      "confusion_matrix": [
+        [
+          361,
+          2
+        ],
+        [
+          9,
+          325
+        ]
+      ],
+      "time_min": 0.06356475353240967
+    },
+    "LightGBM": {
+      "best_params": {
+        "learning_rate": 0.1,
+        "max_depth": 5,
+        "n_estimators": 200
+      },
+      "OA": 0.9842180774748924,
+      "UA": 0.9879154078549849,
+      "PA": 0.9790419161676647,
+      "F1": 0.9834586466165414,
+      "confusion_matrix": [
+        [
+          359,
+          4
+        ],
+        [
+          7,
+          327
+        ]
+      ],
+      "time_min": 0.09330630699793498
+    }
+  }
+}

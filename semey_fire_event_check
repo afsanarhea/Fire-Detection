@@ -1,0 +1,24 @@
+import pandas as pd
+
+df = pd.read_csv(r"C:\Users\USER\Downloads\DL_FIRE_J1V-C2_726235\fire_archive_J1V-C2_726235.csv")
+
+# Semey study area (matches GEE rectangle)
+semey = df[
+    (df['latitude'] > 50.2) & (df['latitude'] < 51.0) &
+    (df['longitude'] > 77.8) & (df['longitude'] < 79.2)
+]
+
+# June 2023 only
+june2023 = semey[semey['acq_date'].str.startswith('2023-06')]
+
+print(f"Total June 2023 hotspots: {len(june2023)}")
+print(f"\nHotspots by date:")
+print(june2023['acq_date'].value_counts().sort_index())
+
+print(f"\nFire locations (lat/lon clusters):")
+print(f"Lat range: {june2023['latitude'].min():.3f} to {june2023['latitude'].max():.3f}")
+print(f"Lon range: {june2023['longitude'].min():.3f} to {june2023['longitude'].max():.3f}")
+
+# Check if hotspots are in separate clusters
+print(f"\nLatitude distribution:")
+print(june2023['latitude'].describe())

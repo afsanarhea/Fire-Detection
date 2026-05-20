@@ -1,0 +1,37 @@
+import pandas as pd
+
+# Load BOTH satellite files
+df1 = pd.read_csv(r"C:\Users\USER\Downloads\DL_FIRE_J1V-C2_726235\fire_archive_J1V-C2_726235.csv")
+df2 = pd.read_csv(r"C:\Users\USER\Downloads\DL_FIRE_SV-C2_726236\fire_archive_SV-C2_726236.csv")
+
+print(f"NOAA-20 file: {len(df1)} rows")
+print(f"S-NPP file: {len(df2)} rows")
+
+# Combine both satellites
+df = pd.concat([df1, df2], ignore_index=True)
+print(f"Combined: {len(df)} rows")
+
+# Look for ANY June 2023 fires in northeast Kazakhstan
+ne_kz = df[
+    (df['latitude'] > 49.5) & (df['latitude'] < 51.5) &
+    (df['longitude'] > 77.0) & (df['longitude'] < 81.0) &
+    (df['acq_date'].str.startswith('2023-06'))
+]
+
+print(f"\nJune 2023 hotspots in northeast Kazakhstan: {len(ne_kz)}")
+print(f"\nBy date:")
+print(ne_kz['acq_date'].value_counts().sort_index())
+
+if len(ne_kz) > 0:
+    print(f"\nLocation range:")
+    print(f"Lat: {ne_kz['latitude'].min():.3f} to {ne_kz['latitude'].max():.3f}")
+    print(f"Lon: {ne_kz['longitude'].min():.3f} to {ne_kz['longitude'].max():.3f}")
+    
+    print(f"\nTop dates with most hotspots:")
+    print(ne_kz['acq_date'].value_counts().head(10))
+    
+    # Check confidence and FRP
+    print(f"\nConfidence levels:")
+    print(ne_kz['confidence'].value_counts())
+    print(f"\nFRP statistics:")
+    print(ne_kz['frp'].describe())

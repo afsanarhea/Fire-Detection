@@ -1,0 +1,27 @@
+import pandas as pd
+
+df1 = pd.read_csv(r"C:\Users\USER\Downloads\DL_FIRE_J1V-C2_726235\fire_archive_J1V-C2_726235.csv")
+df2 = pd.read_csv(r"C:\Users\USER\Downloads\DL_FIRE_SV-C2_726236\fire_archive_SV-C2_726236.csv")
+df = pd.concat([df1, df2], ignore_index=True)
+
+# Main fire days
+fire = df[
+    (df['latitude'] > 49.5) & (df['latitude'] < 51.5) &
+    (df['longitude'] > 77.0) & (df['longitude'] < 81.0) &
+    (df['acq_date'].isin(['2023-06-08', '2023-06-09', '2023-06-11', '2023-06-12', '2023-06-13']))
+]
+
+print(f"Fire hotspots (June 8-13): {len(fire)}")
+print(f"\nLocation range:")
+print(f"Lat: {fire['latitude'].min():.3f} to {fire['latitude'].max():.3f}")
+print(f"Lon: {fire['longitude'].min():.3f} to {fire['longitude'].max():.3f}")
+
+print(f"\nMean center:")
+print(f"Lat: {fire['latitude'].mean():.3f}")
+print(f"Lon: {fire['longitude'].mean():.3f}")
+
+# Check distribution to see if multiple clusters
+print(f"\nLatitude percentiles:")
+print(fire['latitude'].quantile([0.1, 0.25, 0.5, 0.75, 0.9]))
+print(f"\nLongitude percentiles:")
+print(fire['longitude'].quantile([0.1, 0.25, 0.5, 0.75, 0.9]))
